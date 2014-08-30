@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Cabin:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,900' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    /*** FONTS */
+    body {
+        font-family: 'Cabin', sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        width: 297mm;
+        height: 420mm;
+    }
+    h1 {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    input[type="text"], textarea {
+        font-family: 'Cabin', sans-serif;
+        font-weight: 700;
+    }
+    .nr {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 900;
+    }
+
+    /*** BASIC SETUP */
+    body > * {
+        max-width: 830px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    div, span {
+        position: relative;
+    }
+    h1 {
+        position:relative;
+        border:1px solid black; display: inline-block;
+        background: black;
+        color: white;
+    }
+    h1 img { display:block; }
+    div { display: block; }
+    span { display: inline-block; }
+    div, span {
+        vertical-align: top;
+    }
+    input[type="text"], textarea { width: 100%; border: 2px solid black; }
+
+    /*** HEADER STYLING */
+    h1:before {
+        position:absolute; left:-1px; top:-1px; content:'';
+        border-top: 8px solid white;
+        border-right: 8px solid transparent;
+    }
+    h1:after {
+        position:absolute; right:-1px; bottom:-1px; content:'';
+        border-bottom: 8px solid white;
+        border-left: 8px solid transparent;
+    }
+    h1 {
+        font-size: 1em;
+        font-weight: 700;
+        padding: 0 10px;
+        display: block;
+        margin: 3px 0;
+    }
+
+    /*** SPAN SIZES */
+    .span1-4 { width: 200px; }
+    .span3-4 { width: 600px; }
+    .span1-3 { width: 266px; }
+    .span2-3 { width: 534px; }
+    .span1-2 { width: 400px; }
+
+    /*** CUSTOM CHECKBOX */
+    label {
+        display: inline;
+        position: relative;
+    }
+    input[type="checkbox"] + label {
+        margin-right: 20px;
+        margin-left: 8px;
+    }
+    input[type="checkbox"] {
+        display: none;
+    }
+    input[type="checkbox"] + label:before {
+        /*background-color: #fafafa;*/
+        border: 2px solid black;
+        /*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+        padding: 9px;
+        display: inline-block;
+        position: relative;
+    }
+    input[type="checkbox"] + label:before:active, input[type="checkbox"]:checked + label:before:active {
+        /*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+    input[type="checkbox"] + label:before {
+        content: ' ';
+        position: relative;
+    }
+    input[type="checkbox"]:checked + label:before {
+        /*background-color: #e9ecee;*/
+        /*border: 1px solid #adb8c0;*/
+        /*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+        /*color: #99a1a7;*/
+    }
+    input[type="checkbox"]:checked + label:after {
+        content: '\2714';
+        color: black;
+        font-size: 45px;
+        position: absolute;
+        top: -19px;
+        left: -3px;
+        /*color: #99a1a7;*/
+    }
+    input[type="checkbox"] + label .nr {
+        position: absolute;
+        top: -17px;
+        left: -8px;
+    }
+
+    /*** SECTIONS SPECIFIC STYLES */
+    #skills .row > input {
+        width: 79px;
+        margin-right: 3px;
+    }
+    #skills .row>span:first-child {
+        width: 90px;
+        margin-right: 10px;
+        text-align: right;
+        vertical-align: middle;
+    }
+    #aspects .row, #aspects .row > * {
+        width: 98%;
+    }
+    #stunts > span, #extras > span {
+        width: 98%;
+        height: 130px;
+    }
+    #consequences input {
+        width: 240px;
+    }
+    #id > .row {
+        width: 516px;
+    }
+    #id > .row:nth-child(3) {
+        width: 512px;
+    }
+    #id {
+        padding-bottom: 6px;
+    }
+    #extras textarea, #stunts textarea {
+        height: 100%;
+    }
+
+    /*** USEFUL CLASSES AND IDs */
+    .row {
+        height: 27px;
+    }
+    .nr {
+        font-size: 1.6em;
+    }
+    .stress {
+        position: relative;
+        margin-left: 13px;
+    }
+    .stress .nr {
+        position: absolute;
+        left: -11px;
+        top: -5px;
+    }
+    .stress input {
+        padding-left: 7px;
+    }
+    .unused, .unused input[type="checkbox"] + label:before, .unused input {
+        color: silver !important;
+        border-color: silver !important;
+    }
+    #refresh {
+        float: right;
+        position: absolute;
+        top: 30px;
+        right: 10px;
+        height: 60px;
+        width: 60px;
+    }
+    #refresh > input[type="text"] {
+        height: 100%;
+        text-align: center;
+        font-size: 3em;
+    }
+    #logo {
+        height: 90px;
+    }
+    #logo > * {
+        height: 100%;
+    }
+    ::-webkit-input-placeholder { font-size: 14px; }
+    ::-moz-placeholder          { font-size: 14px; } /* firefox 19+ */
+    :-ms-input-placeholder      { font-size: 14px; } /* ie */
+    input:-moz-placeholder      { font-size: 14px; }
+</style>
+</head>
+<body>
+<div>
+    <span id="id" class="span3-4">
+        <h1>ID</h1>
+        <div class="row"><input type="text" placeholder="Name"></div>
+        <div class="row"><textarea rows="2"></textarea></div>
+        <div id="refresh"><input type="text" placeholder="Refresh" class="huge float-right"></div>
+    </span>
+    <span id="logo" class="span1-4"><img src="logo.png"></div></span>
+</div>
+<div>
+    <span id="aspects" class="span1-3">
+        <h1>ASPECTS</h1>
+        <span class="row"><input type="text" placeholder="High Concept"></span>
+        <span class="row"><input type="text" placeholder="Trouble"></span>
+        <span class="row"><input type="text"></span>
+        <span class="row"><input type="text"></span>
+        <span class="row"><input type="text"></span>
+    </span>
+    <span id="skills" class="span2-3">
+        <h1>SKILLS</h1>
+        <div class="row"><span>Superb (+5)</span><input type="text" class="unused"><input type="text" class="unused"><input type="text" class="unused"><input type="text" class="unused"><input type="text" class="unused"></div>
+        <div class="row"><span>Great (+4)</span><input type="text"><input type="text" class="unused"><input type="text" class="unused"><input type="text" class="unused"><input type="text" class="unused"></div>
+        <div class="row"><span>Good (+3)</span><input type="text"><input type="text"><input type="text" class="unused"><input type="text" class="unused"><input type="text" class="unused"></div>
+        <div class="row"><span>Fair (+2)</span><input type="text"><input type="text"><input type="text"><input type="text" class="unused"><input type="text" class="unused"></div>
+        <div class="row"><span>Average (+1)</span><input type="text"><input type="text"><input type="text"><input type="text"><input type="text" class="unused"></div>
+    </span>
+</div>
+<div>
+    <span id="extras" class="span1-2">
+        <h1>EXTRAS</h1>
+        <span><textarea></textarea></span>
+    </span>
+    <span id="stunts" class="span1-2">
+        <h1>STUNTS</h1>
+        <span><textarea></textarea></span>
+    </span>
+</div>
+<div>
+    <span id="stress" class="span1-3">
+        <div>
+            <h1>PHYSICAL STRESS <subtitle>(Physique)</subtitle></h1>
+            <div class="row">
+                <span class="stress"><input id="phst-1" type="checkbox"><label for="phst-1"><span class="nr">1</span></label></span>
+                <span class="stress"><input id="phst-2" type="checkbox"><label for="phst-2"><span class="nr">2</span></label></span>
+                <span class="stress unused"><input id="phst-3" type="checkbox"><label for="phst-3"><span class="nr">3</span></label></span>
+                <span class="stress unused"><input id="phst-4" type="checkbox"><label for="phst-4"><span class="nr">4</span></label></span>
+            </div>
+        </div>
+        <div>
+            <h1>MENTAL STRESS <subtitle>(Will)</subtitle></h1>
+            <div class="row">
+                <span class="stress"><input id="mest-1" type="checkbox"><label for="mest-1"><span class="nr">1</span></label></span>
+                <span class="stress"><input id="mest-2" type="checkbox"><label for="mest-2"><span class="nr">2</span></label></span>
+                <span class="stress unused"><input id="mest-3" type="checkbox"><label for="mest-3"><span class="nr">3</span></label></span>
+                <span class="stress unused"><input id="mest-4" type="checkbox"><label for="mest-4"><span class="nr">4</span></label></span>
+            </div>
+        </div>
+    </span>
+    <span id="consequences" class="span2-3">
+        <h1>CONSEQUENCES</h1>
+        <div class="row">
+            <span class="stress"><span class="nr">2</span><input type="text" placeholder="Mild"></span>
+            <span class="stress unused"><span class="nr">2</span><input type="text" placeholder="Mild"></span>
+        </div>
+        <div class="row">
+            <span class="stress"><span class="nr">4</span><input type="text" placeholder="Moderate"></span>
+            <span></span>
+        </div>
+        <div class="row">
+            <span class="stress"><span class="nr">6</span><input type="text" placeholder="Severe"></span>
+            <span></span>
+        </div>
+    </span>
+</div>
+</body>
+</html>
